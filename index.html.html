@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>สุขสันต์ครบรอบ 5 เดือน 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffe0f0, #d0f0ff);
+      font-family: 'Sarabun', sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff5ca2;
+      margin-top: 50px;
+      font-size: 2em;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #message {
+      text-align: center;
+      font-size: 1.5em;
+      color: #ff3385;
+      margin-top: 30px;
+      display: none;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 70px;
+      height: 90px;
+      background-color: pink;
+      border-radius: 50% 50% 50% 50%;
+      animation: floatUp 8s linear forwards;
+      opacity: 0.9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8em;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-120vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>สุขสันต์ครบรอบ 5 เดือน 💗</h1>
+
+  <div class="button-container">
+    <button onclick="celebrate()">กดรับรักพี่ 💕</button>
+  </div>
+
+  <div id="message">ตั้งแต่มีเธอ พี่ก็มีความสุขทุกวันเลยนะ 💞</div>
+
+  <script>
+    function celebrate() {
+      const msg = document.getElementById("message");
+      msg.style.display = "block";  // แสดงข้อความที่ซ่อนอยู่
+
+      const messages = [
+        "รักเธอ", "พี่มีความสุข", "อยู่กับพี่ตลอดไป", "5 เดือนแล้วนะ", "เธอคือที่สุด", 
+        "ขอบคุณที่อยู่ด้วยกัน", "อย่าทิ้งพี่นะ", "คิดถึงเธอทุกวัน", "เธอคือนางฟ้า", "จุ๊บๆ 💋"
+      ];
+
+      for (let i = 0; i < 25; i++) {
+        let balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.backgroundColor = "hsl(" + Math.random() * 360 + ", 100%, 85%)";
+        balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
+        balloon.innerText = messages[Math.floor(Math.random() * messages.length)];
+        document.body.appendChild(balloon);
+
+        // ลบลูกโป่งหลังลอยเสร็จ
+        setTimeout(() => {
+          balloon.remove();
+        }, 10000); // ลบลูกโป่งหลัง 10 วินาที
+      }
+    }
+  </script>
+</body>
+</html>
