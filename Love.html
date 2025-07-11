@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>สุขสันต์ครบรอบ 5 เดือนนะแฟน</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Sarabun', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 30px auto;
+      max-width: 600px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .heart {
+      font-size: 80px;
+      animation: beat 1s infinite;
+    }
+
+    img {
+      width: 300px;
+      max-width: 80%;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    button {
+      background-color: #fff;
+      color: #e91e63;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 30px;
+    }
+
+    button:hover {
+      background-color: #f8bbd0;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      font-size: 50px;
+      animation: floatUp 5s linear forwards;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -100px;
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+      }
+    }
+
+    .message {
+      font-size: 1.3em;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInMsg 2s ease forwards;
+    }
+
+    @keyframes fadeInMsg {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- เพลงตั้งแต่มีเธอฉันมีความสุข -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container">
+    <div class="heart">💖</div>
+    <h1>สุขสันต์ครบรอบ 5 เดือนนะแฟน</h1>
+    <p>
+      5 เดือนที่ผ่านมามันพิเศษมากสำหรับพี่<br>
+      ขอบคุณที่อยู่ข้างกันเสมอ<br>
+      พี่รักเธอมากขึ้นทุกวันนะ 🥰
+    
+
+    <button onclick="showLove()">กดเพื่อรับรัก</button>
+
+    <div id="balloonArea"></div>
+    <div id="loveMessage" class="message"></div>
+	  </div>
+
+  <script>
+    function showLove() {
+      const container = document.getElementById('balloonArea');
+const message = document.getElementById('loveMessage');   
+      const hearts = ["🎈","💖","🎉","💕","🌈"];
+
+      for (let i = 0; i < 10; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.left = Math.random() * 90 + "%";
+        balloon.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        container.appendChild(balloon);
+
+        setTimeout(() => {
+          balloon.remove();
+        }, 5000);
+      }
+
+		      message.innerHTML = "รักมากขึ้นทุกวันเลยนะ 💕 ขอบคุณที่เป็นของขวัญในชีวิตพี่";
+      message.style.animation = "fadeInMsg 2s ease forwards";
+    }
+  </script>
+</body>
+</html>
